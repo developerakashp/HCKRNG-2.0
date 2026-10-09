@@ -476,7 +476,7 @@ function OurStory() {
             Whether you're grabbing a quick filter coffee before work or settling in with your laptop for the afternoon, this is your space.
           </p>
           <p style={caveat} className="text-3xl text-[#2E4F4F] pt-4">
-            ಇದು ನಮ್ಮ ಜಾಗ!
+            This is our spot!
           </p>
         </div>
         <div className="flex-1 relative">
@@ -490,18 +490,18 @@ function OurStory() {
 
 function CustomerLove() {
   const reviews = [
-    { text: "Perfect place for evening coffee and conversations. The vibe is immaculate.", kannada: "ಸಂಜೆಯ ಕಾಫಿಗೆ ಇದು ನಮ್ಮ ನೆಚ್ಚಿನ ಜಾಗ!", author: "Ananya", role: "ಸ್ಥಳೀಯ ಗೈಡ್" },
-    { text: "The filter coffee tastes just like home. Absolutely love the sandwiches too!", kannada: "ಮನೆಯ ಕಾಫಿಯ ರುಚಿ — ಇಲ್ಲೇ ಸಿಗುತ್ತದೆ.", author: "Rahul", role: "ನಿಯಮಿತ ಗ್ರಾಹಕ" },
-    { text: "Great ambience, great coffee, great vibes. My new favorite hangout spot.", kannada: "ಒಳ್ಳೆಯ ವಾತಾವರಣ, ಒಳ್ಳೆಯ ಕಾಫಿ — ನಮ್ಮ ಬ್ರೂ!", author: "Kiran", role: "ಫ್ರೀಲ್ಯಾನ್ಸರ್" }
+    { text: "Perfect place for evening coffee and conversations. The vibe is immaculate.", kannada: "Our favorite spot for evening coffee!", author: "Ananya", role: "Local Guide" },
+    { text: "The filter coffee tastes just like home. Absolutely love the sandwiches too!", kannada: "The taste of home — found right here.", author: "Rahul", role: "Regular Customer" },
+    { text: "Great ambience, great coffee, great vibes. My new favorite hangout spot.", kannada: "Great ambience, great coffee — Namma Brew!", author: "Kiran", role: "Freelancer" }
   ];
   
   return (
     <section className="py-24 px-6 bg-[#3E2723] text-[#FDFBF7]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 style={playfair} className="text-4xl md:text-5xl font-bold mb-2">ಗ್ರಾಹಕರ ಪ್ರೀತಿ</h2>
-          <p className="text-[#D4AF37] text-sm mb-3">Customer Love</p>
-          <p className="text-[#FDFBF7]/70 text-lg">ಬೆಂಗಳೂರು ನಮ್ಮ ಬಗ್ಗೆ ಏನು ಹೇಳುತ್ತದೆ.</p>
+          <h2 style={playfair} className="text-4xl md:text-5xl font-bold mb-2">Customer Love</h2>
+          <p className="text-[#D4AF37] text-sm mb-3">Our Reviews</p>
+          <p className="text-[#FDFBF7]/70 text-lg">What Bengaluru says about us.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((r, i) => (

@@ -60,7 +60,7 @@ export default function CoffeeShopIntro({ onComplete }: { onComplete: () => void
           }`}
           style={{ textShadow: "0 4px 20px rgba(212,175,55,0.4)" }}
         >
-          ಸ್ವಾಗತ
+          WELCOME
         </p>
 
         {/* Step 2: Namma Brew */}
@@ -81,13 +81,13 @@ export default function CoffeeShopIntro({ onComplete }: { onComplete: () => void
           }`}
         >
           <p className="font-caveat text-2xl md:text-4xl text-[#FDFBF7]/90 mb-6 drop-shadow-lg">
-            ನಮ್ಮ ಕಾಫಿ — ನಮ್ಮ ವೈಬ್ — ನಮ್ಮ ಬೆಂಗಳೂರು
+            Our Coffee — Our Vibe — Our Bengaluru
           </p>
           
           <div className="inline-flex items-center gap-3 bg-[#2E4F4F]/40 backdrop-blur-md border border-[#D4AF37]/30 rounded-full px-6 py-2 shadow-2xl">
             <span className="text-[#D4AF37]">✦</span>
             <span className="text-[#FDFBF7] text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">
-              ಸ್ವಚ್ಛ · ಕ್ರಮಬದ್ಧ · ಉನ್ನತ ಗುಣಮಟ್ಟ
+              Clean · Systematic · High Quality
             </span>
             <span className="text-[#D4AF37]">✦</span>
           </div>

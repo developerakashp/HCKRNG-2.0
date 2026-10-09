@@ -63,7 +63,7 @@ type CampaignVersion = {
 };
 
 export default function CampaignWorkspace() {
-  const [activeStep, setActiveStep] = useState<1 | 2 | 3 | 4 | 5 | 6>(1);
+  const [activeStep, setActiveStep] = useState<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10>(1);
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
   
   const [lockedFacts, setLockedFacts] = useState<LockedOfferFacts | null>(null);
@@ -81,6 +81,56 @@ export default function CampaignWorkspace() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [isValidating, setIsValidating] = useState(false);
+  const [validationComplete, setValidationComplete] = useState(false);
+  
+  const [isPredicting, setIsPredicting] = useState(false);
+  const [predictionComplete, setPredictionComplete] = useState(false);
+  
+  const [isOptimizing, setIsOptimizing] = useState(false);
+  const [optimizationComplete, setOptimizationComplete] = useState(false);
+  
+  const [isDeploying, setIsDeploying] = useState(false);
+  const [deploymentComplete, setDeploymentComplete] = useState(false);
+
+  const simulateProcess = (setLoading, setComplete) => {
+    setLoading(true);
+    setComplete(false);
+    setTimeout(() => {
+      setLoading(false);
+      setComplete(true);
+    }, 2000);
+  };
+
+  const [generatedCampaign, setGeneratedCampaign] = useState<any>(null);
+
+  const handleGenerateCampaign = async () => {
+    setIsGenerating(true);
+    setGeneratedCampaign(null);
+    try {
+      const res = await fetch("/api/campaign/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          campaignInput: brief,
+          lockedFacts: lockedFacts
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setGeneratedCampaign(data);
+      } else {
+        alert(data.error || "Failed to generate campaign");
+      }
+    } catch (e) {
+      alert("Network error generating campaign.");
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
 
   const handleDemoBrief = (type: number = 1) => {
     if (type === 1) {
@@ -234,10 +284,10 @@ export default function CampaignWorkspace() {
             <StepItem number="04" label="Audience" active={activeStep === 4} upcoming={activeStep < 4} completed={activeStep > 4} />
             <StepItem number="05" label="Strategy" active={activeStep === 5} upcoming={activeStep < 5} completed={activeStep > 5} />
             <StepItem number="06" label="Content" active={activeStep === 6} upcoming={activeStep < 6} completed={activeStep > 6} />
-            <StepItem number="07" label="Validation" upcoming />
-            <StepItem number="08" label="Prediction" upcoming />
-            <StepItem number="09" label="Optimization" upcoming />
-            <StepItem number="10" label="Approval" upcoming />
+            <StepItem number="07" label="Validation" active={activeStep === 7} upcoming={activeStep < 7} completed={activeStep > 7} />
+            <StepItem number="08" label="Prediction" active={activeStep === 8} upcoming={activeStep < 8} completed={activeStep > 8} />
+            <StepItem number="09" label="Optimization" active={activeStep === 9} upcoming={activeStep < 9} completed={activeStep > 9} />
+            <StepItem number="10" label="Approval" active={activeStep === 10} upcoming={activeStep < 10} completed={activeStep > 10} />
           </nav>
         </div>
 
@@ -1213,6 +1263,7 @@ export default function CampaignWorkspace() {
                 setCampaignStrategy({...campaignStrategy, strategyStatus: "ready_for_generation"});
                 setActiveStep(6);
                 window.scrollTo(0, 0);
+                handleGenerateCampaign();
               }}
               className={`px-8 py-3 rounded-full text-sm font-bold flex items-center gap-2 transition-all ${campaignStrategy.validation.valid ? 'bg-[#2E4F4F] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5' : 'bg-red-100 text-red-500 cursor-not-allowed'}`}
             >
