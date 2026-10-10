@@ -264,8 +264,8 @@ function FullMenu() {
     ],
     "BREAKFAST": [
       { name: "Masala Dosa", desc: "Crispy dosa served with chutney and sambar.", price: "₹140", img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80", popular: true, veg: true },
-      { name: "Idli & Vada", desc: "Soft idlis and crispy vada with fresh chutney.", price: "₹120", img: "https://images.unsplash.com/photo-1610392972473-f009c13ce74e?auto=format&fit=crop&w=600&q=80", veg: true },
-      { name: "Ghee Podi Idli", desc: "Soft idlis tossed with ghee and spicy podi.", price: "₹130", img: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=80", veg: true }
+      { name: "Idli & Vada", desc: "Soft idlis and crispy vada with fresh chutney.", price: "₹120", img: "/images/idli_vada.jpg", veg: true },
+      { name: "Ghee Podi Idli", desc: "Soft idlis tossed with ghee and spicy podi.", price: "₹130", img: "/images/ghee_podi_idli.jpg", veg: true }
     ],
     "BITES": [
       { name: "Veg Grilled Sandwich", desc: "Grilled vegetables, cheese and our signature sauce.", price: "₹160", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80", popular: true, veg: true },
